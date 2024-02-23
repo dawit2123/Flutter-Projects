@@ -43,36 +43,32 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
                 //container for the phone number and email
-                Container(
-                  color: Colors.white,
-                  margin: EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 10.0),
-                  padding: EdgeInsets.all(10.0),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.phone,
-                        color: Colors.teal,
-                      ),
-                      SizedBox(width: 10.0),
-                      Text('+251 97 790 4892'),
-                    ],
-                  ),
-                ),
-                Container(
-                  color: Colors.white,
-                  margin: EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 10.0),
-                  padding: EdgeInsets.all(10.0),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.email,
-                        color: Colors.teal,
-                      ),
-                      SizedBox(width: 10.0),
-                      Text('dawitzewdu2123@gmail.com')
-                    ],
-                  ),
-                ),
+                //padding: EdgeInsets.all(10.0),
+
+                Card(
+                    color: Colors.white,
+                    margin: EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 10.0),
+                    child: Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.phone,
+                            color: Colors.teal,
+                          ),
+                          title: Text('+251 97 790 4892'),
+                        ))),
+                Card(
+                    color: Colors.white,
+                    margin: EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 10.0),
+                    child: Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.email,
+                            color: Colors.teal,
+                          ),
+                          title: Text('dawitzewdu2123@gmail.com'),
+                        ))),
               ],
             )),
           )),
