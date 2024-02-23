@@ -6,11 +6,10 @@ void main() {
     home: Scaffold(
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
-          title: Center(
-              child: Text(
+          title: Text(
             "I Am Rich",
             style: TextStyle(color: Colors.white),
-          )),
+          ),
           backgroundColor: Colors.blueGrey[900]),
       body: Center(
           child: Image(
