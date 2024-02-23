@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
           body: Center(
             child: SafeArea(
                 child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 CircleAvatar(
                   backgroundColor: Colors.blue[900],
@@ -42,9 +43,13 @@ class MyApp extends StatelessWidget {
                     letterSpacing: 3.0,
                   ),
                 ),
-                //container for the phone number and email
-                //padding: EdgeInsets.all(10.0),
-
+                SizedBox(
+                  height: 20.0,
+                  width: 150.0,
+                  child: Divider(
+                    color: Colors.teal.shade100,
+                  ),
+                ),
                 Card(
                     color: Colors.white,
                     margin: EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 10.0),
