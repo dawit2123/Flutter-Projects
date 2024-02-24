@@ -48,7 +48,19 @@ class _DicePageState extends State<DicePage> {
       child: Row(
         children: <Widget>[
           Expanded(
-              child: FloatingActionButton.large(
+              child: TextButton(
+            style: ButtonStyle(
+              overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                (Set<MaterialState> states) {
+                  if (states.contains(MaterialState.hovered))
+                    return Colors.blue.withOpacity(0);
+                  if (states.contains(MaterialState.focused) ||
+                      states.contains(MaterialState.pressed))
+                    return Colors.blue.withOpacity(0);
+                  return null; // Defer to the widget's default.
+                },
+              ),
+            ),
             child: Image(
               image: AssetImage('images/dice$leftNumber.png'),
             ),
@@ -57,7 +69,19 @@ class _DicePageState extends State<DicePage> {
             },
           )),
           Expanded(
-              child: FloatingActionButton.large(
+              child: TextButton(
+            style: ButtonStyle(
+              overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                (Set<MaterialState> states) {
+                  if (states.contains(MaterialState.hovered))
+                    return Colors.blue.withOpacity(0);
+                  if (states.contains(MaterialState.focused) ||
+                      states.contains(MaterialState.pressed))
+                    return Colors.blue.withOpacity(0);
+                  return null; // Defer to the widget's default.
+                },
+              ),
+            ),
             child: Image.asset('images/dice$rightNumber.png'),
             onPressed: () {
               setNumbers();
