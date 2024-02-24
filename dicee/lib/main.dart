@@ -33,9 +33,16 @@ class DicePage extends StatefulWidget {
 }
 
 class _DicePageState extends State<DicePage> {
+  int leftNumber = 1;
+  int rightNumber = 1;
+  void setNumbers() {
+    setState(() {
+      leftNumber = Random().nextInt(6) + 1;
+      rightNumber = Random().nextInt(6) + 1;
+    });
+  }
+
   @override
-  int diceNumber1 = 1;
-  int diceNumber2 = 1;
   Widget build(BuildContext context) {
     return Container(
       child: Row(
@@ -43,21 +50,17 @@ class _DicePageState extends State<DicePage> {
           Expanded(
               child: FloatingActionButton.large(
             child: Image(
-              image: AssetImage('images/dice$diceNumber1.png'),
+              image: AssetImage('images/dice$leftNumber.png'),
             ),
             onPressed: () {
-              setState(() {
-                diceNumber1 = Random().nextInt(6) + 1;
-              });
+              setNumbers();
             },
           )),
           Expanded(
               child: FloatingActionButton.large(
-            child: Image.asset('images/dice$diceNumber2.png'),
+            child: Image.asset('images/dice$rightNumber.png'),
             onPressed: () {
-              setState(() {
-                diceNumber2 = Random().nextInt(6) + 1;
-              });
+              setNumbers();
             },
           ))
         ],
