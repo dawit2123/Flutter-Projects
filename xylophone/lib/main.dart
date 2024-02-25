@@ -15,6 +15,8 @@ class XylophoneApp extends StatelessWidget {
     return Expanded(
       child: TextButton(
         style: ButtonStyle(
+          shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(borderRadius: BorderRadius.zero)),
           backgroundColor: MaterialStateProperty.all<Color>(color),
         ),
         onPressed: () {
