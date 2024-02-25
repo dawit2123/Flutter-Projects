@@ -178,55 +178,89 @@ class Quizzler extends StatelessWidget {
           child: Scaffold(
             backgroundColor: Colors.grey.shade900,
             body: SafeArea(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Expanded(
-                      flex: 5,
-                      child: Padding(
-                        padding:
-                            EdgeInsets.fromLTRB(100.0, 200.0, 100.0, 100.0),
-                        child: Text(
-                          'How many countries are there in Ethiopia How many countries are there in Ethiopia  ?',
-                          style: TextStyle(color: Colors.white, fontSize: 20.0),
-                        ),
-                      )),
-                  Expanded(
-                      child: TextButton(
-                    onPressed: () {
-                      print('True pressed');
-                    },
-                    child: Container(
-                      child: Text(
-                        'True',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.green),
-                    ),
-                  )),
-                  Expanded(
-                      child: TextButton(
-                    onPressed: () {
-                      print('False pressed');
-                    },
-                    child: Container(
-                      child: Text(
-                        'False',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.red)),
-                  ))
-                ],
-              ),
+              child: QuizPage(),
             ),
           ),
         ));
+  }
+}
+
+class QuizPage extends StatefulWidget {
+  const QuizPage({Key? key}) : super(key: key);
+
+  @override
+  _QuizPageState createState() => _QuizPageState();
+}
+
+class _QuizPageState extends State<QuizPage> {
+  List<Icon> scoreKeeper = [
+    Icon(
+      Icons.check,
+      color: Colors.green,
+    ),
+    Icon(
+      Icons.close,
+      color: Colors.red,
+    ),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        Expanded(
+            flex: 5,
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(100.0, 200.0, 100.0, 100.0),
+              child: Text(
+                'How many countries are there in Ethiopia ?',
+                style: TextStyle(color: Colors.white, fontSize: 20.0),
+              ),
+            )),
+        Expanded(
+            child: TextButton(
+          onPressed: () {
+            setState(() => scoreKeeper.add(
+                  Icon(
+                    Icons.check,
+                    color: Colors.green,
+                  ),
+                ));
+          },
+          child: Container(
+            child: Text(
+              'True',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+          ),
+        )),
+        Expanded(
+            child: TextButton(
+          onPressed: () {
+            setState(() {
+              scoreKeeper.add(Icon(
+                Icons.close,
+                color: Colors.red,
+              ));
+            });
+          },
+          child: Container(
+            child: Text(
+              'False',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.red)),
+        )),
+        Row(
+          children: scoreKeeper,
+        )
+      ],
+    );
   }
 }
