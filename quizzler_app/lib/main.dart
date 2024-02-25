@@ -163,6 +163,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() => runApp(const Quizzler());
 
@@ -175,30 +176,53 @@ class Quizzler extends StatelessWidget {
         theme: ThemeData(fontFamily: 'Roboto'),
         home: SafeArea(
           child: Scaffold(
+            backgroundColor: Colors.grey.shade900,
             body: SafeArea(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(100.0, 0, 0, 0),
-                    child: Text('How many countries are there in Ethiopia ?'),
-                  ),
-                  TextButton(
+                  Expanded(
+                      flex: 5,
+                      child: Padding(
+                        padding:
+                            EdgeInsets.fromLTRB(100.0, 200.0, 100.0, 100.0),
+                        child: Text(
+                          'How many countries are there in Ethiopia How many countries are there in Ethiopia  ?',
+                          style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        ),
+                      )),
+                  Expanded(
+                      child: TextButton(
                     onPressed: () {
                       print('True pressed');
                     },
                     child: Container(
-                      child: Text('True'),
+                      child: Text(
+                        'True',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        print('False pressed');
-                      },
-                      child: Container(
-                        child: Text('False'),
-                      ))
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.green),
+                    ),
+                  )),
+                  Expanded(
+                      child: TextButton(
+                    onPressed: () {
+                      print('False pressed');
+                    },
+                    child: Container(
+                      child: Text(
+                        'False',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.red)),
+                  ))
                 ],
               ),
             ),
