@@ -193,16 +193,13 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  List<Icon> scoreKeeper = [
-    Icon(
-      Icons.check,
-      color: Colors.green,
-    ),
-    Icon(
-      Icons.close,
-      color: Colors.red,
-    ),
+  List<String> questions = [
+    'You can lead a cow down stairs but not up stairs.',
+    'Approximately one quarter of human bones are in the feet.',
+    'A slug\'s blood is green.'
   ];
+  List<Icon> scoreKeeper = [];
+  int questionNumber = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -214,48 +211,48 @@ class _QuizPageState extends State<QuizPage> {
             child: Padding(
               padding: EdgeInsets.fromLTRB(100.0, 200.0, 100.0, 100.0),
               child: Text(
-                'How many countries are there in Ethiopia ?',
+                questions[questionNumber],
                 style: TextStyle(color: Colors.white, fontSize: 20.0),
               ),
             )),
         Expanded(
             child: TextButton(
           onPressed: () {
-            setState(() => scoreKeeper.add(
-                  Icon(
-                    Icons.check,
-                    color: Colors.green,
-                  ),
-                ));
+            setState(() {
+              scoreKeeper.add(
+                Icon(
+                  Icons.check,
+                  color: Colors.green,
+                ),
+              );
+              questionNumber++;
+            });
           },
-          child: Container(
-            child: Text(
-              'True',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+          ),
+          child: Text(
+            'True',
+            style: TextStyle(color: Colors.white),
           ),
         )),
         Expanded(
             child: TextButton(
           onPressed: () {
             setState(() {
+              questionNumber++;
               scoreKeeper.add(Icon(
                 Icons.close,
                 color: Colors.red,
               ));
             });
           },
-          child: Container(
-            child: Text(
-              'False',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
           style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.red)),
+          child: Text(
+            'False',
+            style: TextStyle(color: Colors.white),
+          ),
         )),
         Row(
           children: scoreKeeper,
