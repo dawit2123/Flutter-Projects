@@ -113,11 +113,13 @@ class QuizBrain {
     return _questionBank[_questionNumber].questionAnswer;
   }
 
-  void validateQuestion(bool value) {
+  bool validateQuestion(bool value) {
     if (_questionBank[_questionNumber].questionAnswer == value) {
       print('User got it correct');
+      return true;
     } else {
       print('User got it wrong');
+      return false;
     }
   }
 }

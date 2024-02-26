@@ -166,8 +166,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'quiz_brain.dart';
 
-// QuizBrain quizBrain = QuizBrain();
-
 void main() => runApp(const Quizzler());
 
 class Quizzler extends StatelessWidget {
@@ -199,6 +197,27 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
   QuizBrain quizBrain = QuizBrain();
+  void respondToAnswers(bool status) {
+    if (quizBrain.validateQuestion(status)) {
+      scoreKeeper.add(
+        Icon(
+          Icons.check,
+          color: Colors.green,
+        ),
+      );
+    } else {
+      scoreKeeper.add(
+        Icon(
+          Icons.close,
+          color: Colors.red,
+        ),
+      );
+    }
+    setState(() {
+      quizBrain.validateQuestion(status);
+      quizBrain.nextQuestion();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -218,10 +237,7 @@ class _QuizPageState extends State<QuizPage> {
         Expanded(
             child: TextButton(
           onPressed: () {
-            setState(() {
-              quizBrain.validateQuestion(true);
-              quizBrain.nextQuestion();
-            });
+            respondToAnswers(true);
           },
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
@@ -234,10 +250,7 @@ class _QuizPageState extends State<QuizPage> {
         Expanded(
             child: TextButton(
           onPressed: () {
-            setState(() {
-              quizBrain.validateQuestion(false);
-              quizBrain.nextQuestion();
-            });
+            respondToAnswers(false);
           },
           style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.red)),
