@@ -164,6 +164,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'question.dart';
 
 void main() => runApp(const Quizzler());
 
@@ -193,10 +194,11 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  List<String> questions = [
-    'You can lead a cow down stairs but not up stairs.',
-    'Approximately one quarter of human bones are in the feet.',
-    'A slug\'s blood is green.'
+  List<Questions> questions = [
+    Questions('You can lead a cow down stairs but not up stairs.', false),
+    Questions(
+        'Approximately one quarter of human bones are in the feet.', true),
+    Questions('A slug\'s blood is green.', true)
   ];
   List<Icon> scoreKeeper = [];
   int questionNumber = 0;
@@ -211,7 +213,7 @@ class _QuizPageState extends State<QuizPage> {
             child: Padding(
               padding: EdgeInsets.fromLTRB(100.0, 200.0, 100.0, 100.0),
               child: Text(
-                questions[questionNumber],
+                questions[questionNumber].questionText,
                 style: TextStyle(color: Colors.white, fontSize: 20.0),
               ),
             )),
@@ -219,12 +221,11 @@ class _QuizPageState extends State<QuizPage> {
             child: TextButton(
           onPressed: () {
             setState(() {
-              scoreKeeper.add(
-                Icon(
-                  Icons.check,
-                  color: Colors.green,
-                ),
-              );
+              if (questions[questionNumber].questionAnswer == true) {
+                print('User got it correct');
+              } else {
+                print('User got it wrong');
+              }
               questionNumber++;
             });
           },
@@ -240,11 +241,12 @@ class _QuizPageState extends State<QuizPage> {
             child: TextButton(
           onPressed: () {
             setState(() {
+              if (questions[questionNumber].questionAnswer == false) {
+                print('User got it correct');
+              } else {
+                print('User got it wrong');
+              }
               questionNumber++;
-              scoreKeeper.add(Icon(
-                Icons.close,
-                color: Colors.red,
-              ));
             });
           },
           style: ButtonStyle(
