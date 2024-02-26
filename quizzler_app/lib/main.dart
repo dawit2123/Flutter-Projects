@@ -164,7 +164,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'question.dart';
+import 'quiz_brain.dart';
 
 void main() => runApp(const Quizzler());
 
@@ -194,14 +194,7 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  List<Questions> questions = [
-    Questions('You can lead a cow down stairs but not up stairs.', false),
-    Questions(
-        'Approximately one quarter of human bones are in the feet.', true),
-    Questions('A slug\'s blood is green.', true)
-  ];
   List<Icon> scoreKeeper = [];
-  int questionNumber = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -213,7 +206,7 @@ class _QuizPageState extends State<QuizPage> {
             child: Padding(
               padding: EdgeInsets.fromLTRB(100.0, 200.0, 100.0, 100.0),
               child: Text(
-                questions[questionNumber].questionText,
+                QuizBrain().getQuestionText(),
                 style: TextStyle(color: Colors.white, fontSize: 20.0),
               ),
             )),
@@ -221,12 +214,8 @@ class _QuizPageState extends State<QuizPage> {
             child: TextButton(
           onPressed: () {
             setState(() {
-              if (questions[questionNumber].questionAnswer == true) {
-                print('User got it correct');
-              } else {
-                print('User got it wrong');
-              }
-              questionNumber++;
+              QuizBrain().validateQuestion(true);
+              QuizBrain().nextQuestion();
             });
           },
           style: ButtonStyle(
@@ -241,12 +230,8 @@ class _QuizPageState extends State<QuizPage> {
             child: TextButton(
           onPressed: () {
             setState(() {
-              if (questions[questionNumber].questionAnswer == false) {
-                print('User got it correct');
-              } else {
-                print('User got it wrong');
-              }
-              questionNumber++;
+              QuizBrain().validateQuestion(false);
+              QuizBrain().nextQuestion();
             });
           },
           style: ButtonStyle(
