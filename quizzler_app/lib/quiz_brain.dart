@@ -71,12 +71,6 @@ class QuizBrain {
   // void incrementQuestionNumber() {
   //   _questionNumber++;
   // }
-  void nextQuestion() {
-    if (_questionNumber < _questionBank.length - 1) {
-      _questionNumber++;
-      print(_questionNumber);
-    }
-  }
 
   final List<Question> _questionBank = [
     Question('Some cats are actually allergic to humans', true),
@@ -105,6 +99,12 @@ class QuizBrain {
         'In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.',
         true),
   ];
+  void nextQuestion() {
+    if (_questionNumber < _questionBank.length - 1) {
+      _questionNumber = _questionNumber + 1;
+    }
+  }
+
   String getQuestionText() {
     return _questionBank[_questionNumber].questionText;
   }

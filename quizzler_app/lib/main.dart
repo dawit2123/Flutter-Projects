@@ -166,6 +166,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'quiz_brain.dart';
 
+// QuizBrain quizBrain = QuizBrain();
+
 void main() => runApp(const Quizzler());
 
 class Quizzler extends StatelessWidget {
@@ -190,11 +192,14 @@ class QuizPage extends StatefulWidget {
   const QuizPage({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _QuizPageState createState() => _QuizPageState();
 }
 
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
+  QuizBrain quizBrain = QuizBrain();
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -206,7 +211,7 @@ class _QuizPageState extends State<QuizPage> {
             child: Padding(
               padding: EdgeInsets.fromLTRB(100.0, 200.0, 100.0, 100.0),
               child: Text(
-                QuizBrain().getQuestionText(),
+                quizBrain.getQuestionText(),
                 style: TextStyle(color: Colors.white, fontSize: 20.0),
               ),
             )),
@@ -214,8 +219,8 @@ class _QuizPageState extends State<QuizPage> {
             child: TextButton(
           onPressed: () {
             setState(() {
-              QuizBrain().validateQuestion(true);
-              QuizBrain().nextQuestion();
+              quizBrain.validateQuestion(true);
+              quizBrain.nextQuestion();
             });
           },
           style: ButtonStyle(
@@ -230,8 +235,8 @@ class _QuizPageState extends State<QuizPage> {
             child: TextButton(
           onPressed: () {
             setState(() {
-              QuizBrain().validateQuestion(false);
-              QuizBrain().nextQuestion();
+              quizBrain.validateQuestion(false);
+              quizBrain.nextQuestion();
             });
           },
           style: ButtonStyle(
