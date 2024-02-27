@@ -115,10 +115,22 @@ class QuizBrain {
 
   bool validateQuestion(bool value) {
     if (_questionBank[_questionNumber].questionAnswer == value) {
-      print('User got it correct');
       return true;
     } else {
-      print('User got it wrong');
+      return false;
+    }
+  }
+
+  void reset() {
+    _questionNumber = 0;
+  }
+
+  bool isFinished() {
+    if (_questionNumber > _questionBank.length - 2) {
+      print('end');
+      return true;
+    } else {
+      print('not end');
       return false;
     }
   }
