@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const minimumBottomContainerHeight = 80.0;
+const activeCardColor = Color(0xFF1D1E33);
+const bottomContainerColor = Color(0xffeb1555);
+
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
 
@@ -21,24 +25,30 @@ class _InputPageState extends State<InputPage> {
               child: Row(
             children: <Widget>[
               Expanded(
-                child: BasicContainer(Color(0xFF1D1E33)),
+                child: BasicContainer(activeCardColor),
               ),
-              Expanded(child: BasicContainer(Color(0xFF1D1E33))),
+              Expanded(child: BasicContainer(activeCardColor)),
             ],
           )),
           Expanded(
               child: Row(
             children: <Widget>[
-              Expanded(child: BasicContainer(Color(0xFF1D1E33)))
+              Expanded(child: BasicContainer(activeCardColor))
             ],
           )),
           Expanded(
               child: Row(
             children: <Widget>[
-              Expanded(child: BasicContainer(Color(0xFF1D1E33))),
-              Expanded(child: BasicContainer(Color(0xFF1D1E33)))
+              Expanded(child: BasicContainer(activeCardColor)),
+              Expanded(child: BasicContainer(activeCardColor))
             ],
           )),
+          Container(
+            color: bottomContainerColor,
+            margin: EdgeInsets.only(top: 10.0),
+            height: minimumBottomContainerHeight,
+            width: double.infinity,
+          )
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -52,7 +62,7 @@ class _InputPageState extends State<InputPage> {
 }
 
 class BasicContainer extends StatelessWidget {
-  Color color;
+  final Color color;
   BasicContainer(this.color);
 
   @override
