@@ -21,51 +21,20 @@ class _InputPageState extends State<InputPage> {
               child: Row(
             children: <Widget>[
               Expanded(
-                child: Container(
-                  margin: EdgeInsets.all(10.0),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.0),
-                      color: Color(0xFF1D1E33)),
-                ),
+                child: BasicContainer(),
               ),
-              Expanded(
-                  child: Container(
-                margin: EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: Color(0xFF1D1E33)),
-              )),
+              Expanded(child: BasicContainer()),
             ],
           )),
           Expanded(
               child: Row(
-            children: <Widget>[
-              Expanded(
-                  child: Container(
-                margin: EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: Color(0xFF1D1E33)),
-              ))
-            ],
+            children: <Widget>[Expanded(child: BasicContainer())],
           )),
           Expanded(
               child: Row(
             children: <Widget>[
-              Expanded(
-                  child: Container(
-                margin: EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: Color(0xFF1D1E33)),
-              )),
-              Expanded(
-                  child: Container(
-                margin: EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: Color(0xFF1D1E33)),
-              ))
+              Expanded(child: BasicContainer()),
+              Expanded(child: BasicContainer())
             ],
           )),
         ],
@@ -76,6 +45,19 @@ class _InputPageState extends State<InputPage> {
           //TODO: some logic here
         },
       ),
+    );
+  }
+}
+
+class BasicContainer extends StatelessWidget {
+  const BasicContainer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0), color: Color(0xFF1D1E33)),
     );
   }
 }
