@@ -28,25 +28,12 @@ class _InputPageState extends State<InputPage> {
               Expanded(
                 child: BasicContainer(
                   activeCardColor,
-                  Column(
-                    children: <Widget>[
-                      Icon(
-                        FontAwesomeIcons.mars,
-                        size: 80.0,
-                      ),
-                      SizedBox(
-                        height: 18.0,
-                      ),
-                      Text(
-                        'MALE',
-                        style:
-                            TextStyle(color: Color(0xff8d8e98), fontSize: 18.0),
-                      )
-                    ],
-                  ),
+                  GenderConfigurations(FontAwesomeIcons.mars, 'MALE'),
                 ),
               ),
-              Expanded(child: BasicContainer(activeCardColor, Column())),
+              Expanded(
+                  child: BasicContainer(activeCardColor,
+                      GenderConfigurations(FontAwesomeIcons.venus, 'FEMALE'))),
             ],
           )),
           Expanded(
@@ -92,6 +79,31 @@ class BasicContainer extends StatelessWidget {
       margin: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0), color: color),
+    );
+  }
+}
+
+class GenderConfigurations extends StatelessWidget {
+  String gender;
+  IconData icon;
+  GenderConfigurations(this.icon, this.gender);
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Icon(
+          icon,
+          size: 80.0,
+        ),
+        SizedBox(
+          height: 18.0,
+        ),
+        Text(
+          gender,
+          style: TextStyle(color: Color(0xff8d8e98), fontSize: 18.0),
+        )
+      ],
     );
   }
 }
