@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const minimumBottomContainerHeight = 80.0;
 const activeCardColor = Color(0xFF1D1E33);
@@ -25,22 +26,40 @@ class _InputPageState extends State<InputPage> {
               child: Row(
             children: <Widget>[
               Expanded(
-                child: BasicContainer(activeCardColor),
+                child: BasicContainer(
+                  activeCardColor,
+                  Column(
+                    children: <Widget>[
+                      Icon(
+                        FontAwesomeIcons.mars,
+                        size: 80.0,
+                      ),
+                      SizedBox(
+                        height: 18.0,
+                      ),
+                      Text(
+                        'MALE',
+                        style:
+                            TextStyle(color: Color(0xff8d8e98), fontSize: 18.0),
+                      )
+                    ],
+                  ),
+                ),
               ),
-              Expanded(child: BasicContainer(activeCardColor)),
+              Expanded(child: BasicContainer(activeCardColor, Column())),
             ],
           )),
           Expanded(
               child: Row(
             children: <Widget>[
-              Expanded(child: BasicContainer(activeCardColor))
+              Expanded(child: BasicContainer(activeCardColor, Column()))
             ],
           )),
           Expanded(
               child: Row(
             children: <Widget>[
-              Expanded(child: BasicContainer(activeCardColor)),
-              Expanded(child: BasicContainer(activeCardColor))
+              Expanded(child: BasicContainer(activeCardColor, Column())),
+              Expanded(child: BasicContainer(activeCardColor, Column()))
             ],
           )),
           Container(
@@ -63,11 +82,13 @@ class _InputPageState extends State<InputPage> {
 
 class BasicContainer extends StatelessWidget {
   final Color color;
-  BasicContainer(this.color);
+  final Widget childWidget;
+  BasicContainer(this.color, this.childWidget);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      child: childWidget,
       margin: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0), color: color),
