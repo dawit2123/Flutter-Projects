@@ -21,20 +21,22 @@ class _InputPageState extends State<InputPage> {
               child: Row(
             children: <Widget>[
               Expanded(
-                child: BasicContainer(),
+                child: BasicContainer(Color(0xFF1D1E33)),
               ),
-              Expanded(child: BasicContainer()),
+              Expanded(child: BasicContainer(Color(0xFF1D1E33))),
             ],
           )),
           Expanded(
               child: Row(
-            children: <Widget>[Expanded(child: BasicContainer())],
+            children: <Widget>[
+              Expanded(child: BasicContainer(Color(0xFF1D1E33)))
+            ],
           )),
           Expanded(
               child: Row(
             children: <Widget>[
-              Expanded(child: BasicContainer()),
-              Expanded(child: BasicContainer())
+              Expanded(child: BasicContainer(Color(0xFF1D1E33))),
+              Expanded(child: BasicContainer(Color(0xFF1D1E33)))
             ],
           )),
         ],
@@ -50,14 +52,15 @@ class _InputPageState extends State<InputPage> {
 }
 
 class BasicContainer extends StatelessWidget {
-  const BasicContainer({Key? key}) : super(key: key);
+  Color color;
+  BasicContainer(this.color);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0), color: Color(0xFF1D1E33)),
+          borderRadius: BorderRadius.circular(10.0), color: color),
     );
   }
 }
