@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'gender_configuration.dart';
+import 'basic_container.dart';
 
 const minimumBottomContainerHeight = 80.0;
 const activeCardColor = Color(0xFF1D1E33);
@@ -63,47 +65,6 @@ class _InputPageState extends State<InputPage> {
           //TODO: some logic here
         },
       ),
-    );
-  }
-}
-
-class BasicContainer extends StatelessWidget {
-  final Color color;
-  final Widget childWidget;
-  BasicContainer(this.color, this.childWidget);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: childWidget,
-      margin: EdgeInsets.all(10.0),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0), color: color),
-    );
-  }
-}
-
-class GenderConfigurations extends StatelessWidget {
-  String gender;
-  IconData icon;
-  GenderConfigurations(this.icon, this.gender);
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Icon(
-          icon,
-          size: 80.0,
-        ),
-        SizedBox(
-          height: 18.0,
-        ),
-        Text(
-          gender,
-          style: TextStyle(color: Color(0xff8d8e98), fontSize: 18.0),
-        )
-      ],
     );
   }
 }
