@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'quiz_brain.dart';
 
@@ -39,7 +40,8 @@ class _QuizPageState extends State<QuizPage> {
       Alert(
               context: context,
               title: "Quiz finished",
-              desc: "You have reached the end of the quiz")
+              desc:
+                  "You have reached the end of the quiz.\n You have scored. ${quizBrain.getNumOfCorrectAnswers()}/ ${quizBrain.getNumOfQuestion()} ")
           .show();
       quizBrain.reset();
       setState(() {
@@ -109,6 +111,15 @@ class _QuizPageState extends State<QuizPage> {
         )),
         Row(
           children: scoreKeeper,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Score:  ${quizBrain.getNumOfCorrectAnswers()}/ ${scoreKeeper.length}',
+              style: TextStyle(color: Colors.white),
+            ),
+          ],
         ),
       ],
     );
