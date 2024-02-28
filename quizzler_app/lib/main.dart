@@ -36,12 +36,18 @@ class _QuizPageState extends State<QuizPage> {
   QuizBrain quizBrain = QuizBrain();
   void respondToAnswers(bool status) {
     if (quizBrain.isFinished()) {
-      //         //Alert(context: context, title: "RFLUTTER", desc: "Flutter is awesome.").show();
+      //Alert(context: context, title: "RFLUTTER", desc: "Flutter is awesome.").show();
+      //TODO: Add some rounding in this application when calclating the percentages of answered questions
+      double averageCorrectAnswer =
+          (quizBrain.getNumOfCorrectAnswers() / quizBrain.getNumOfQuestion()) *
+              100;
+      String roundedAverageCorrectNumber =
+          averageCorrectAnswer.toStringAsFixed(2);
       Alert(
               context: context,
               title: "Quiz finished",
               desc:
-                  "You have reached the end of the quiz.\n You have scored. ${quizBrain.getNumOfCorrectAnswers()}/ ${quizBrain.getNumOfQuestion()} ")
+                  "You have reached the end of the quiz.\n You have got ${roundedAverageCorrectNumber} % \n You have scored. ${quizBrain.getNumOfCorrectAnswers()}/ ${quizBrain.getNumOfQuestion()} ")
           .show();
       quizBrain.reset();
       setState(() {
