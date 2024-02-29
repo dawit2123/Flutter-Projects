@@ -42,12 +42,12 @@ class _QuizPageState extends State<QuizPage> {
           (quizBrain.getNumOfCorrectAnswers() / quizBrain.getNumOfQuestion()) *
               100;
       String roundedAverageCorrectNumber =
-          averageCorrectAnswer.toStringAsFixed(2);
+          averageCorrectAnswer.toStringAsFixed(1);
       Alert(
               context: context,
               title: "Quiz finished",
               desc:
-                  "You have reached the end of the quiz.\n You have got ${roundedAverageCorrectNumber} % \n You have scored. ${quizBrain.getNumOfCorrectAnswers()}/ ${quizBrain.getNumOfQuestion()} ")
+                  "You have reached the end of the quiz.\n You have got ${roundedAverageCorrectNumber} % of questions right. \n You have scored ${quizBrain.getNumOfCorrectAnswers()}/ ${quizBrain.getNumOfQuestion()}. ")
           .show();
       quizBrain.reset();
       setState(() {
