@@ -1,3 +1,5 @@
+// ignore: prefer_const_constructors
+
 import 'dart:html';
 
 import 'package:flutter/material.dart';
@@ -25,6 +27,7 @@ class _InputPageState extends State<InputPage> {
         child: Text('BMI CALCULATOR'),
       )),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
               child: Row(
@@ -64,7 +67,27 @@ class _InputPageState extends State<InputPage> {
                   child: BasicContainer(
                       activeCardColor,
                       Column(
-                        children: <Widget>[Text('HEIGHT')],
+                        children: <Widget>[
+                          Text(
+                            'HEIGHT',
+                            style: textDefaultStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.baseline,
+                            textBaseline: TextBaseline.alphabetic,
+                            children: <Widget>[
+                              Text(
+                                '180',
+                                style: kNumTextStyle,
+                              ),
+                              Text(
+                                'cm',
+                                style: textDefaultStyle,
+                              )
+                            ],
+                          )
+                        ],
                       )))
             ],
           )),

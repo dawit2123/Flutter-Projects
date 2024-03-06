@@ -6,3 +6,5 @@ const inActiveCardColor = Color(0xFF111328);
 const bottomContainerColor = Color(0xffeb1555);
 
 const textDefaultStyle = TextStyle(color: Color(0xff8d8e98), fontSize: 18.0);
+
+const kNumTextStyle = TextStyle(fontSize: 50.0, fontWeight: FontWeight.w900);
