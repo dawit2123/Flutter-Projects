@@ -1,9 +1,5 @@
-# bmi_calculator
+# BMI Calculator mobile app
 
-A new Flutter project.
+## This app is used to calculate the BMI given the height and weight and it ranks based on the result
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
+### Made using flutter
