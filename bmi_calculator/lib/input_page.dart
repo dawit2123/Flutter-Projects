@@ -60,7 +60,12 @@ class _InputPageState extends State<InputPage> {
           Expanded(
               child: Row(
             children: <Widget>[
-              Expanded(child: BasicContainer(activeCardColor, Column()))
+              Expanded(
+                  child: BasicContainer(
+                      activeCardColor,
+                      Column(
+                        children: <Widget>[Text('HEIGHT')],
+                      )))
             ],
           )),
           Expanded(
