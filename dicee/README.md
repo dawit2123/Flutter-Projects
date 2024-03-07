@@ -5,3 +5,5 @@
 ## **Language used**: _Dart_
 
 **Frameworks used**: _Flutter_
+
+Copyright &copy; 2024 . Made by Dawit Zewdu.
