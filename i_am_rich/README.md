@@ -1,16 +1,15 @@
-# i_am_rich
+# I am rich moblie app
 
-A new Flutter project.
+## A simple and elegant to view mobile app project to recreate I am rich app
 
-## Getting Started
+### Concepts used
 
-This project is a starting point for a Flutter application.
+##
 
-A few resources to get you started if this is your first Flutter project:
+<p>I tried to use a scaffold and material widget for this picture . It contains an image and text.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## </p>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The project is labelled as a begginer project to introduce to flutter features and widgets.
+
+###### Copyright &copy; 2024 . Made by Dawit Zewdu.
